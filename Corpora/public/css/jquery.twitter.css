@@ -1,0 +1,97 @@
+div#twitter {
+	color: #fff;
+	font-family: 'Source Sans Pro' , sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    padding: 25px 15px 15px 15px;
+}
+
+div#twitter h2 {
+	margin: 0;
+	padding: 0;
+	
+}
+
+div#twitter p {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+div#twitter li a 
+{
+    padding-bottom: 10px;
+}
+
+div#twitter li span
+{
+    font-size: 0.8em;
+}
+
+div#twitter li a {
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+div#twitter .interact 
+{
+    /*
+  float:left;
+  margin-top:-7px;
+  */
+}
+
+div#twitter .interact a 
+{
+    display: inline-block;
+    margin-right:5px;
+}
+
+p#preloader {
+	margin: 0;
+	padding: 1em 1em 1em 3em;
+	background: transparent url("loader.gif") 1em center no-repeat;
+	/* generate your own loader gif: http://www.ajaxload.info */
+}
+
+ul#twitter_update_list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul#twitter_update_list li {
+	margin: 0;
+	padding: 0 0 10px 0;
+	
+}
+
+ul#twitter_update_list li a {
+	/* timestamp link */
+	color: #fff;
+	letter-spacing: 1px;
+
+}
+
+ul#twitter_update_list li span {
+	display: block;
+	font-size: 0.8em;
+}
+
+ul#twitter_update_list li span a {
+	/* links in tweet */
+	
+}
+
+ul#twitter_update_list li.firstTweet {
+}
+
+ul#twitter_update_list li.lastTweet {
+	border-bottom: none;
+}
+
+a#profileLink {
+	display: block;
+	padding: 0.3em 1em;
+	color: #fff;
+}
