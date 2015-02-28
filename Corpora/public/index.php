@@ -58,7 +58,7 @@
                 <div class="nav-area">
                     <ul class="nav nav-pills">
                         <li><a href="?page=index">Home</a></li>
-                        <li><a href="?page=about">Nome</a></li>
+                        <li><a href="?page=about">About</a></li>
                         <li><a href="?page=portifolio">Portifolio</a></li>
                         <li><a href="?page=contato">Contato</a></li>
                     </ul>
