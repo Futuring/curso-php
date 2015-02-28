@@ -15,7 +15,14 @@ foreach ($array as $indice => $valor) {
         $sqlValues .= $valor;
         $ePrimeiro = true;
     }
+    
+    $valor =  md5(uniqid(rand(), true));
 }
+
+echo "<pre>";
+print_r($array);
+echo "</pre>";
+die;
 
 $sql .= ") ";
 $sqlValues .= ")";

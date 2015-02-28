@@ -1,3 +1,42 @@
+<?php
+    ini_set("display_errors", "On");
+    $dir = __DIR__;
+    $separator = DIRECTORY_SEPARATOR;
+
+require_once($dir.$separator."..".$separator."Functions".$separator."Load.php");    
+
+    \Corpora\Functions\load("assets", "styles");
+    \Corpora\Functions\load("assets", "scripts");
+    
+    use Corpora\Functions\Assets\Styles;
+
+    Styles\addAsset("css\styles.css");
+    Styles\addAsset("css\styles22.css");
+    Styles\addAsset("css\vakiress.css");
+
+    $paginas = [
+        "Home" => 'home', 
+        "Sobre" => 'about', 
+        "Portifolio" => 'portifolio',
+        "Contato" => 'contato'
+    ];
+
+ 
+    
+    $dirPage = $dir.$separator."..".$separator."pages".$separator;
+
+    if(array_key_exists("page", $_GET)) {
+        $page = $_GET['page'];
+    } else {
+        $page = "home";
+    }
+
+    if( ! in_array($page, $paginas)) 
+        $page = "404";
+    
+    $page .= ".php";
+    $arquivo = $dirPage.$page;
+?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,7 +49,7 @@
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 		
 	<!-- CSS Files -->
-
+    <?=  Styles\getStringAssets(); ?>
 	<link rel="stylesheet" href="css/animate.min.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/font-awesome.css" />
@@ -35,7 +74,6 @@
         </div>
 	</section>
     <!-- Page Loader END -->
-
     
     <!-- nav -->
     <nav id="nav" class="header section-area">
@@ -57,10 +95,13 @@
                 <!-- nav links -->
                 <div class="nav-area">
                     <ul class="nav nav-pills">
-                        <li><a href="?page=index">Home</a></li>
-                        <li><a href="?page=about">About</a></li>
-                        <li><a href="?page=portifolio">Portifolio</a></li>
-                        <li><a href="?page=contato">Contato</a></li>
+                        <?php foreach ($paginas as $label => $valor ) : ?>
+                            <li>
+                                <a href="?page=<?= $valor ?>">
+                                       <?= $label ?>
+                                 </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <!-- nav links END -->
@@ -69,24 +110,13 @@
                 <div class="nav-area-mobile">
                     <p><i class="fa fa-bars"></i></p>
                     <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                        <li><a href="404.html">404</a></li>
-            	        <li><a href="coming-soon.html">Coming Soon</a></li>				
-                        <li><a href="user-login.html">User Login</a></li>
-                        <li><a href="2-columns.html">2 Columns</a></li>
-                        <li><a href="4-columns.html">4 Columns</a></li>
-                        <li><a href="masonry.html">Masonry</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="project-page.html">Project Page</a></li>
-                        <li><a href="blog-standard.html">Standard</a></li>
-                        <li><a href="blog-standard-2.html">Standard 2</a></li>
-                        <li><a href="blog-masonry.html">Masonry</a></li>
-                        <li><a href="blog-post.html">Post Page</a></li>
-                        <li><a href="one-page.html">one-page</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <?php foreach ($paginas as $label => $valor ) : ?>
+                            <li>
+                                <a href="?page=<?= $valor ?>">
+                                       <?= $label ?>
+                                 </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ol>
                 </div>
                 <!-- mobile END -->
@@ -97,272 +127,7 @@
     </nav>
     <!-- nav END -->
 
-
-    <!-- banner -->
-    <section id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="images/slide.jpg" alt="...">
-                <div class="mask"></div>
-                <div class="carousel-caption">
-                    <h3>Corpora corporate HTML theme</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam ultrices dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <a class="read-more" href="#">READ MORE</a>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/slide.jpg" alt="...">
-                <div class="mask"></div>
-                <div class="carousel-caption">
-                    <h3>Corpora corporate HTML theme</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam ultrices dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <a class="read-more" href="#">READ MORE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="fa fa-angle-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="fa fa-angle-right"></span>
-        </a>
-    </section>
-    <!-- banner END -->
-
-
-
-    <!-- theme info -->
-    <section class="home-section-1 section-area">
-        <div>
-            <article class="animated" data-animation="fadeIn" data-animation-delay="100">
-                <a href="#"><i class="fa fa-archive"></i></a>
-                <h3>Multi and One-Page</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam.</p>
-            </article>
-            <article class="animated" data-animation="fadeIn" data-animation-delay="300">
-                <a href="#"><i class="fa fa-code"></i></a>
-                <h3>Bootstrap Ready</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam.</p>
-            </article>
-            <article class="animated" data-animation="fadeIn" data-animation-delay="700">
-                <a href="#"><i class="fa fa-refresh"></i></a>
-                <h3>25 HTML Files</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam.</p>
-            </article>
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <!-- theme END -->
-  
-   <!-- Home Portfolio -->
-  <section class="portfolio-home section-area">
-        <div>
-
-            <!-- portfolio gallery -->
-            <div class="portfolio" id="portfolio_4c">
-            
-               <!-- portfolio cell -->
-                <article class="item col-4 animated" data-animation="fadeIn" data-animation-delay="100">
-                    <div>
-                        <img src="images/projects/project.jpg" alt="..." />
-                        <div class="mask">
-                            <div>
-                                <h3>Image Title</h3>
-                                <a class="btn diamond" href="project-page.html"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h2>My New Project</h2>
-                </article>
-                <!-- portfolio cell END -->
-               
-	<!-- portfolio cell -->
-                <article class="item col-4 animated" data-animation="fadeIn" data-animation-delay="300">
-                    <div>
-                        <img src="images/projects/project.jpg" alt="..." />
-                        <div class="mask">
-                            <div>
-                                <h3>Image Title</h3>
-                                <a class="btn diamond" href="project-page.html"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h2>My New Project</h2>
-                </article>
-                <!-- portfolio cell END -->
-			   
-               <!-- portfolio cell -->
-                <article class="item col-4 animated" data-animation="fadeIn" data-animation-delay="500">
-                    <div>
-                        <img src="images/projects/project.jpg" alt="..." />
-                        <div class="mask">
-                            <div>
-                                <h3>Image Title</h3>
-                                <a class="btn diamond" href="project-page.html"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h2>My New Project</h2>
-                </article>
-                <!-- portfolio cell END -->
-
-               <!-- portfolio cell -->
-                <article class="item col-4 animated" data-animation="fadeIn" data-animation-delay="700">
-                    <div>
-                        <img src="images/projects/project.jpg" alt="..." />
-                        <div class="mask">
-                            <div>
-                                <h3>Image Title</h3>
-                                <a class="btn diamond" href="project-page.html"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h2>My New Project</h2>
-                </article>
-                <!-- portfolio cell END -->
-
-            </div>
-            <!-- portfolio gallery END -->
-
-            <div class="br">
-
-                <a class="btn load-more" href="4-columns.html">PORTFOLIO</a>
-
-            </div>
-
-
-        </div>
-    </section>
-    <!-- Home Portfolio END -->
-
-
-    <!-- testimonials -->
-    <section class="h-testimonials section-area animated" data-animation="fadeIn" data-animation-delay="400">
-        <div>
-            <div class="texts" id="testimonials">
-                <h2 class="on">&ldquo;One of best theme in the Forest!<br />Keep up the great work!.&rdquo;</h2>
-                <h2>&ldquo;I am completely satisfied with the purchase.<br />I wish I could give you 10 stars!!.&rdquo;</h2>
-                <h2>&ldquo;Awesome! This will sell a lot guys.<br />Keep up the good work!.&rdquo;</h2>
-                <h2>&ldquo;It’s the first time I buy a theme<br />for myself and i loved it!.&rdquo;</h2>
-            </div>
-            <div class="test" id="testimonials_btn">
-                <article class="on" onclick="Corpora.setTextPos(0);">
-                    <span></span>
-                    <h3>Gary B. Smithson</h3>
-                    <p>Director | Rolland Energy Co</p>
-                </article>
-                <article class="off" onclick="Corpora.setTextPos(1);">
-                    <span></span>
-                    <h3>Cary B. Johnson</h3>
-                    <p>Director | Rolland Energy Co.</p>
-                </article>
-                <article class="off" onclick="Corpora.setTextPos(2);">
-                    <span></span>
-                    <h3>Bary B. Smithson</h3>
-                    <p>Director | Rolland Energy Co</p>
-                </article>
-                <article class="off" onclick="Corpora.setTextPos(3);">
-                    <span></span>
-                    <h3>Tary B. Smithson</h3>
-                    <p>Director | Rolland Energy Co</p>
-                </article>
-
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </section>
-    <!-- testimonials END -->
-
-
-
-    <!-- blog -->
-    <section class="h-blog section-area animated" data-animation="fadeIn" data-animation-delay="400">
-        <div>
-            <h2>Blog latest posts. Enjoy!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum facilisis magna. Nunc et mi eget quam ultrices dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="blog-standard-2 h-posts">
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <div class="art-img"><a href="blog-post.html"><img alt="..." src="images/blog/blog-filler.jpg" /></a><span></span></div>
-                        <div class="text">
-                            <span>20 FEBRUARY</span>
-                            <h3><a href="blog-post.html">New Post Title</a></h3>
-                            <p><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum.</a></p>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-    <!-- blog END -->
-
-
+     <?php require_once $arquivo; ?>
 
     <!-- footer -->
     <section class="footer animated" data-animation="fadeIn" data-animation-delay="400">
@@ -431,5 +196,4 @@
     <!-- JS Files END -->
 
 </body>
-
-</html>   
+</html>
