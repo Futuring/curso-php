@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -6,7 +6,7 @@
     <title>Corpora Corporate HTML Theme</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-              <!--Favicon -->
+      <!--Favicon -->
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 		
 	<!-- CSS Files -->
@@ -57,45 +57,10 @@
                 <!-- nav links -->
                 <div class="nav-area">
                     <ul class="nav nav-pills">
-                        <li><a href="index.html">home</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            pages <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="border-1"><a href="about.html">About</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                <li><a href="404.html">404</a></li>
-		    <li><a href="coming-soon.html">Coming Soon</a></li>						
-                                <li><a href="user-login.html">User Login</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            portfolio <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="border-1"><a href="2-columns.html">2 Columns</a></li>
-                                <li><a href="4-columns.html">4 Columns</a></li>
-                                <li><a href="masonry.html">Masonry</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="project-page.html">Project Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            blog <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="border-1"><a href="blog-standard.html">Standard</a></li>
-                                <li><a href="blog-standard-2.html">Standard 2</a></li>
-                                <li><a href="blog-masonry.html">Masonry</a></li>
-                                <li><a href="blog-post.html">Post Page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="one-page.html">one-page</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="?page=index">Home</a></li>
+                        <li><a href="?page=about">Nome</a></li>
+                        <li><a href="?page=portifolio">Portifolio</a></li>
+                        <li><a href="?page=contato">Contato</a></li>
                     </ul>
                 </div>
                 <!-- nav links END -->
@@ -467,4 +432,4 @@
 
 </body>
 
-</html>
+</html>   
