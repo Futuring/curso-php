@@ -147,24 +147,24 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Index<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Banner</a>
+                                    <a href="">Banner</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Testemunho</a>
+                                    <a href="">Testemunho</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html">Infos</a>
+                                    <a href="">Infos</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Sobre</a>
+                            <a href="" ><i class="fa fa-table fa-fw"></i> Sobre</a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-edit fa-fw"></i> Portifolio</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-edit fa-fw"></i> Contato</a>
+                            <a href=""><i class="fa fa-envelope fa-fw"></i> Contato</a>
                         </li>
                     </ul>
                 </div>
