@@ -1,3 +1,27 @@
+<?php
+    ini_set("display_errors", "On");
+    $dir = __DIR__;
+    $separator = DIRECTORY_SEPARATOR;
+    
+    $paginas = [
+        "home"
+    ];
+
+    $dirPage = $dir."/../../pages".$separator."admin".$separator;
+
+    if(array_key_exists("page", $_GET)) {
+        $page = $_GET['page'];
+    } else {
+        $page = "home";
+    }
+
+    if( ! in_array($page, $paginas)) 
+        $page = "404";
+    
+    $page .= ".php";
+    $arquivo = $dirPage.$page;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,9 +203,7 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <h1 class="page-header">Blank</h1>
-                        <!-- CONTEUDO AQUI -->
-
+                        <?php require_once ($arquivo); ?>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
