@@ -3,7 +3,7 @@
     $dir = __DIR__;
     $separator = DIRECTORY_SEPARATOR;
 
-require_once($dir.$separator."..".$separator."Functions".$separator."Load.php");    
+    require_once($dir.$separator."..".$separator."Functions".$separator."Load.php");    
 
     \Corpora\Functions\load("assets", "styles");
     \Corpora\Functions\load("assets", "scripts");
