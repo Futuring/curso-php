@@ -3,18 +3,19 @@ namespace App\Traits\Db;
 
 trait Querys 
 {
+	protected $table;
 
-	public function findAll($table) 
+	public function findAll() 
 	{
-		$statement = $this->connection->prepare("SELECT * FROM {$table} ");
+		$statement = $this->connection->prepare("SELECT * FROM {$this->table} ");
 		$statement->execute();
 
 		return $statement->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function find($table, $id) 
+	public function find($id) 
 	{
-		$statement = $this->connection->prepare("SELECT * FROM {$table} WHERE id = :id");
+		$statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE id = :id");
 		$statement->bindParam("id", $id);
 		$statement->execute();
 

@@ -1,7 +1,20 @@
 <?php
+session_start();
+
 require_once __DIR__."/../../autoload.php";
 
 use App\DataBase\Db;
+use App\Container\Di;
+
+$di = new Di();
+$pessoa = $di->getModel("Pessoa");
+/*$pessoa->setNome("Breno Douglas")
+	   ->setLogin("bdouglas")->setEmail("bdouglasans@gmail.com")
+	   ->setPassword("123")
+	   ->setIsAdmin(1)
+	   ->save();
+*/
+print_r($pessoa->findAll());die;
 
 $db = new Db();
 
